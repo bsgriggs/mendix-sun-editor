@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="avertra.suneditormendix.SunEditorMendix" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Sun Editor Mendix</name>
+    <description>Puggable widget to use the Sun Editor https://github.com/mkhstar/suneditor-react/blob/master/README.md</description>
+    <helpUrl>https://github.com/JiHong88/SunEditor/blob/master/README.md#options</helpUrl>
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABp1BMVEUAAABV//9mzP9LtP9Ms/9Jtv9NsvdJsfpLtPpJsfdJsfhJsvhJsvdKsvdJsPhKsPhJsfdJsPhJsfdIsfhJsfdIsPdJsfhJsfhJsPhJsPhIsfhIsPdJsPdKsPdKsfdNsvdOsvdPs/dQs/dRtPdStPdTtPdUtfdWtvdXtvdauPdcuPdeufdeufhguvhiu/hju/hkvPhmvfhnvfhpvvhrv/huwPhvwfhxwfhywvhzwvh4xfl5xfl6xfl8xvl9xvl9x/mByPmCyfmFyvmGyvmJzPmKzPmLzfmNzvqPzvqQz/qT0PqU0PqU0fqX0vqY0vqa0/qe1fqg1vqj1/uk1/un2fup2vut2/uv3Puw3Puw3fuz3vu13/u23/u34Pu44Pu64fu64fy84vy94vy+4/y/4/zD5fzE5fzG5vzH5vzI5/zK6PzL6PzR6/zT7P3U7P3V7f3W7f3Y7v3Z7v3c8P3e8f3f8f3g8f3i8v3l8/3l9P3n9P3r9v7t9/7u9/7v+P7w+P7x+f7y+f70+v71+v74/P75/P76/f77/f78/f78/v79/v7+/v7////6dMsRAAAAG3RSTlMAAwURGxwhMTNic3SEh4iVp7XBzejt7vH5/f6PsMNWAAABsklEQVR4AWIYfGAUjIJRMAqYuYREJKWJAqLCPGwY+jnFpEkBEryMqPr5pEkFgkwo9kuTDviR/S9GhgFSHAgDuKXJAQIIA4TIMkAcEY4i0mQBVrgBkuQZwA43QJo8wIFhQEhEOIBQOutHJozDOP5Crp4e1RhkJ0tKGJFd6oNEdtmJyEIzpaZl5nrRZgaHM/2Pf5/vwXXfyagXgG93bwSAlEolowLMm9w83gibhXH2gKKVdD67gTnWjwCk+VVjMQS4suSnnjMLRVFc9sAHvAX2A9fySaXNBMbEZVUWscaHIMRuqwBgD8hDEbnsRmfjUKJkAQZGCTlO/xWBwIADQLIZBlY441MvfoF1xlFS/4fy+bzXKh4dgNJE7L3eh3tmtuWa+AMcMIY3dgUvZQpGEYmMw2kD7HC+R29UqyoXLaBd0QZxzgXgikLLDSqJTKU5HOcS0MsbA9jPqtwCRvXm2eorBbNIJBw3KJ9O4Yl+AAXdnyaLt7PWN3jRWLvzmAVp94zO5+n41/onfo/UpExxZqI0O7NQr0DhIq9Io7hQpbRYp7hiobRqo6ByFcNWuY6CUTAKRgEAo8X0lBD3V30AAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="htmlAttribute" type="attribute" required="true">
+                <caption>HTML attribute</caption>
+                <description>The attribute that contains the HTML to be replaced or display</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                </attributeTypes>
+            </property>
+            <property key="defaultValue" type="string" required="false">
+                <caption>Default value</caption>
+                <description>Default the Text / HTML instead of the Editor</description>
+            </property>
+            <property key="displayOnly" type="boolean" defaultValue="false">
+                <caption>Display only</caption>
+                <description>Show the Text / HTML instead of the Editor</description>
+            </property>
+            <property key="availableButtons" type="enumeration" defaultValue="basic">
+                <caption>Available Buttons</caption>
+                <description>You can use one of the presets or Custom and set your own below.</description>
+                <enumerationValues>
+                    <enumerationValue key="basic">Basic</enumerationValue>
+                    <enumerationValue key="complex">Complex</enumerationValue>
+                    <enumerationValue key="formating">Formating</enumerationValue>
+                    <enumerationValue key="custom">Custom</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="customButtons" type="object" isList="true" required="false">
+                <caption>Custom Buttons</caption>
+                <description>The proper names are available by clicking on the WIDGET HELP BUTTON and search for buttons. Each record is a grouping of buttons.</description>
+                <properties>
+                    <propertyGroup caption="Button List">
+                        <property key="customButtonArray" type="string" required="true">
+                            <caption>Button Array</caption>
+                            <description>This should be a comma seperated list of buttons you want grouped. (i.e. "undo,redo"). You can use '/' to make a new line.</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+            <property key="saveAction" type="action" required="false">
+                <caption>Save Button Action</caption>
+                <description>Action used by the Editor's Save button in the Complex button set or your Custom set.</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Display">
+            <property key="minWidth" type="string" required="false">
+                <caption>Min Width</caption>
+                <description>px and percentage values are accepted (include unit)</description>
+            </property>
+            <property key="minHeight" type="string" required="false">
+                <caption>Min Height</caption>
+                <description/>
+            </property>
+            <property key="width" type="string" required="false" defaultValue="100%">
+                <caption>Width</caption>
+                <description/>
+            </property>
+            <property key="height" type="string" required="false" defaultValue="100%">
+                <caption>Height</caption>
+                <description/>
+            </property>
+            <property key="maxWidth" type="string" required="false">
+                <caption>Max Width</caption>
+                <description/>
+            </property>
+            <property key="maxHeight" type="string" required="false">
+                <caption>Max Height</caption>
+                <description/>
+            </property>
+            <property key="fonts" type="object" isList="true" required="false">
+                <caption>Fonts</caption>
+                <description>List of fonts the user can select from the dropdown. Default values are 'Arial', 'Comic Sans MS', 'Courier New', 'Impact', 'Georgia','tahoma', 'Trebuchet MS', 'Verdana'.</description>
+                <properties>
+                    <propertyGroup caption="Font">
+                        <property key="font" type="string" required="true">
+                            <caption>font</caption>
+                            <description>The name of the font as it would appear in a CSS class. (i.e. Arial)</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Image Settings">
+            <property key="imageFileInput" type="boolean" defaultValue="true">
+                <caption>Allow File Upload</caption>
+                <description>Choose whether to create a file input tag in the image upload window.</description>
+            </property>
+            <property key="imageUrlInput" type="boolean" defaultValue="true">
+                <caption>Allow File Link</caption>
+                <description>Choose whether to create a image url input tag in the image upload window.</description>
+            </property>
+            <property key="imageUploadSizeLimit" type="integer" required="true" defaultValue="200000">
+                <caption>Max Upload Size</caption>
+                <description>The size of the total uploadable images (in bytes).</description>
+            </property>
+            <property key="imageAccept" type="string" required="true" defaultValue="*">
+                <caption>File Types</caption>
+                <description>Define the "accept" attribute of the input. "*" or ".jpg, .png ..".</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Counter">
+            <property key="maxCharacters" type="integer" required="true" defaultValue="0">
+                <caption>Max Characters</caption>
+                <description>The amount of characters allows in the text area.</description>
+            </property>
+            <property key="charCounterType" type="enumeration" defaultValue="char">
+                <caption>Available Buttons</caption> 
+                <description>How the Max Characters are counted. If you want the user to be limited based on the number of characters they eneter, then use 'Char'. If you want the user to be limited based on the HTML that is compiled, then use 'HTML'.</description>
+                <enumerationValues>
+                    <enumerationValue key="char">Char</enumerationValue>
+                    <enumerationValue key="byte">Byte</enumerationValue>
+                    <enumerationValue key="html">HTML</enumerationValue>
+                </enumerationValues>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="onClickAction" type="action" required="false">
+                <caption>On click action</caption>
+                <description>Action to trigger when button / label is clicked</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

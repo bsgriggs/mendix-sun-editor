@@ -1,0 +1,11 @@
+.widget-suneditormendix-clickable {
+    cursor: pointer;
+}
+
+.widget-suneditormendix {
+    display: inline-block;
+    width: 100%;
+}
+.sun-editor-editable {
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif !important;
+}
